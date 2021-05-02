@@ -1,0 +1,91 @@
+﻿ @model Employees
+ 
+<h2>Insert New Employee</h2>
+<h3 class="bg-danger"> @ViewBag.Message</h3>
+
+<form asp-controller="EmployeeManager" asp-action="Insert" method="post">
+    <table border="0">
+        <tr>
+            <td class="right">
+                <label asp-for="FirstName">                </label>
+            </td>
+            <td>
+                <input type="text" asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="bg-danger"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="right">
+                <label asp-for="LastName">                </label>
+            </td>
+            <td>
+                <input type="text" asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="bg-danger"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="right">
+                <label asp-for="Title" >                </label>
+            </td>
+            <td>
+                <input type="text" asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="bg-danger"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="right">
+                <label asp-for="BirthDate">                </label>
+            </td>
+            <td>
+                <input type="date" asp-for="BirthDate" />
+                <span asp-validation-for="BirthDate" class="bg-danger"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="right">
+                <label asp-for="HireDate">                </label>
+            </td>
+            <td>
+                <input type="date" asp-for="HireDate" />
+                <span asp-validation-for="HireDate" class="bg-danger"></span>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="right" >
+                <label asp-for="Country"></label>
+            </td>
+            <td>
+                <select asp-for="Country" asp-items="@ViewBag.Countries" class="btn btn-secondary dropdown-toggle">
+                    <option value="">please select</option>
+                </select>
+                <span asp-validation-for="Country" class="bg-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="right">
+                <label asp-for="Notes"></label>
+
+
+            </td>
+            <td>
+                <textarea asp-for="Notes" rows="5" cols="40" class="form-control" ></textarea>
+                <span asp-validation-for="Notes" class="bg-danger"></span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </td>
+        </tr>
+    </table>
+
+
+</form>
+<br />
+<br />
+<a asp-controller="EmployeeManager" asp-action="List" class="card-link">Back To Employee list</a>
